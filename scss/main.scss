@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: dodgerblue;
+    border-radius: 10px;
+    animation-name: go;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 2s;
+}
+
+@keyframes go {
+    0% {
+        transform: translateX(0);
+    }
+
+    10% {
+        transform: translateX(500px);
+        background-color: aqua;
+    }
+
+    20% {
+        transform: translate(500px, 400px) rotate(90deg);
+        background-color: black;
+    }
+
+    30% {
+        transform: translate(900px, 400px);
+        background-color: gold;
+    }
+
+    40% {
+        transform: translate(900px, 800px);
+    }
+
+    50% {
+        transform: translate(500px, 800px) rotate(90deg);
+        background-color: chartreuse;
+    }
+
+    60% {
+        transform: translate(500px, 400px);
+        background-color: dodgerblue;
+    }
+    70%{
+        transform: translate(400px, 300px);
+    }
+    80%{
+        transform: translate(100px, 300px);
+    }
+    90%{
+        transform: translate(100px, 100px);
+    }
+}
+h1{
+    color: aqua;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+@mixin boxstyle ($main-fuction, $main-color) {
+   margin: 80px 50px ;
+   width: 200px;
+   height: 100px;
+   animation-name: race;
+   animation-duration: 10s;
+   animation-delay: 2s;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+   animation-timing-function: $main-fuction;
+   background-color: $main-color;
+}
+.car1{
+    @include boxstyle( ease, black)
+}
+.car2{
+    @include boxstyle( ease-out, red)
+}
+.car3{
+    @include boxstyle( ease-in, gold)
+}
+.car4{
+    @include boxstyle( ease-in-out, green)
+}
+.car5{
+    @include boxstyle( linear, dodgerblue)
+}
+@keyframes race{
+    to{
+    transform: translateX(1200px);    
+    border-radius: 45px;
+    }
+}
